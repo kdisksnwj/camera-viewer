@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Voir ma caméra</title>
+</head>
+<body>
+  <h1>Affichage caméra</h1>
+  <video id="video" autoplay playsinline width="640" height="480"></video>
+
+  <script>
+    const video = document.getElementById('video');
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(err => {
+        alert('Erreur d\'accès à la caméra : ' + err.message);
+      });
+  </script>
+</body>
+</html>
+ajout index.html
